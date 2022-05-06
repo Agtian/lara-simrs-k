@@ -310,10 +310,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../kanban.html" class="nav-link">
+            <a href="{{ route('data-user') }}" class="nav-link {{ Request::is('data-user*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Kanban Board
+                Data User
               </p>
             </a>
           </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\Master\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\GoogleController;
@@ -24,6 +25,8 @@ Route::post('/', [App\Http\Controllers\Auth\LoginController::class, 'login'])->n
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+    
+    Route::get('/data-user', [User::class, 'index'])->name('data-user');
 });
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
